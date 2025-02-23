@@ -4,12 +4,14 @@
 from jax import vmap
 import jax.numpy as jnp
 import time
+from jax.lib import xla_bridge
+print(xla_bridge.get_backend().platform)
 
 def add(x, y):
     return x + y
 
 times = []
-N = 18
+N = 8
 
 for i in range(0, N):
     print("Power of 10:", i)
