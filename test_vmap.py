@@ -25,6 +25,15 @@ for i in range(0, N):
     times.append(time.time() - time_2)
 
 # Plot
+
+# Save to CSV.
+import csv
+with open("data/vmap_time_macbook_jax_cpu_5.csv", "w") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Power", "Time"])
+    for i in range(0, N):
+        writer.writerow([i, times[i]])
+
 import matplotlib.pyplot as plt
 plt.plot(range(0, N), times, 'o-')
 plt.xlabel("Power of 10")
